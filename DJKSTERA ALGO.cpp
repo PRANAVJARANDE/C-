@@ -9,7 +9,7 @@ vector<int> djkstr(vector<vector<int>> graph)
     //vector<int> vis(n,0);
     vector<int> dist(n,INT_MAX);
     priority_queue< pair<int,int> ,vector<pair<int,int>>,greater<pair<int,int>>> q1;
-    q1.push(make_pair(0,0));
+    q1.push({0,0});
     dist[0]=0;
 
     while(!q1.empty())
@@ -24,7 +24,7 @@ vector<int> djkstr(vector<vector<int>> graph)
                 if(dist[i]>graph[nin][i]+dist[nin])
                 {
                     dist[i]=graph[nin][i]+dist[nin];
-                    q1.push(make_pair(graph[nin][i],i));
+                    q1.push({graph[nin][i],i});
                 }
             }
         }
